@@ -1,7 +1,7 @@
 import ChatEntry from './ChatEntry';
 import PropTypes from 'prop-types';
 
-const ChatLog = ({ entries }) => {
+const ChatLog = ({ entries, likedCount, setLikedCount }) => {
   const entriesElements = entries.map(entry => {
     return <ChatEntry
       key={entry.id}
@@ -9,6 +9,9 @@ const ChatLog = ({ entries }) => {
       sender={entry.sender}
       body={entry.body}
       timeStamp={entry.timeStamp}
+      liked={entry.liked}
+      likedCount={likedCount}
+      setLikedCount={setLikedCount}
     />;
   });
 
@@ -16,12 +19,15 @@ const ChatLog = ({ entries }) => {
 };
 
 ChatLog.PropTypes = {
+  likedCount: PropTypes.number,
+  setLikedCount: PropTypes.func,
   entries: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     sender: PropTypes.string,
     body: PropTypes.string,
     timeStamp: PropTypes.string,
     liked: PropTypes.bool
-  }))};
+  }))
+};
 
 export default ChatLog;

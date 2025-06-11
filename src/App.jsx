@@ -2,18 +2,21 @@ import './App.css';
 // import ChatEntry from './components/ChatEntry';
 import ChatLog from './components/ChatLog';
 import entries from './data/messages.json';
+import { useState } from 'react';
 
 const App = () => {
+  const [likedCount, setLikedCount] = useState(0);
+
   return (
     <div id="App">
       <header>
-        <h1>Application title</h1>
+        <h1>{likedCount} ❤️s</h1>
       </header>
       <main>
         {/* Wave 01: Render one ChatEntry component
         Wave 02: Render ChatLog component */}
         {/* <ChatEntry sender={entries[0].sender} body={entries[0].body} timeStamp={entries[0].timeStamp} /> */}
-        <ChatLog entries={entries}/>
+        <ChatLog entries={entries} likedCount={likedCount} setLikedCount={setLikedCount}/>
       </main>
     </div>
   );
