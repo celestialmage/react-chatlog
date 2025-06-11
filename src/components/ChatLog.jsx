@@ -2,6 +2,8 @@ import ChatEntry from './ChatEntry';
 import PropTypes from 'prop-types';
 
 const ChatLog = ({ entries, likedCount, setLikedCount }) => {
+  const remote = entries[0].sender;
+
   const entriesElements = entries.map(entry => {
     return <ChatEntry
       key={entry.id}
@@ -12,6 +14,7 @@ const ChatLog = ({ entries, likedCount, setLikedCount }) => {
       liked={entry.liked}
       likedCount={likedCount}
       setLikedCount={setLikedCount}
+      remote={remote}
     />;
   });
 
