@@ -4,7 +4,7 @@ import TimeStamp from './TimeStamp';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
-const ChatEntry = ({ sender, body, timeStamp, liked, likedCount, setLikedCount, remote }) => {
+const ChatEntry = ({ sender, body, timeStamp, liked, adjustLikedCount, remote }) => {
   const [messageLiked, setMessageLiked] = useState(liked);
   const [likedHeart, setLikedHeart] = useState('🤍');
 
@@ -17,13 +17,8 @@ const ChatEntry = ({ sender, body, timeStamp, liked, likedCount, setLikedCount, 
   }
 
   const likeClicked = () => {
-    if(messageLiked) {
-      setLikedHeart('🤍');
-      setLikedCount(likedCount - 1);
-    } else {
-      setLikedHeart('❤️');
-      setLikedCount(likedCount + 1);
-    }
+    setLikedHeart(messageLiked ? '🤍' : '❤️');
+    adjustLikedCount(messageLiked ? true : false);
     setMessageLiked(!messageLiked);
   };
 
@@ -46,8 +41,7 @@ ChatEntry.propTypes = {
   body: PropTypes.string,
   timeStamp: PropTypes.string,
   liked: PropTypes.bool,
-  likedCount: PropTypes.number,
-  setLikedCount: PropTypes.func,
+  adjustLikedCount: PropTypes.func,
   remote: PropTypes.string
 };
 

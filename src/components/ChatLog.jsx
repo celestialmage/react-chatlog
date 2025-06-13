@@ -1,7 +1,7 @@
 import ChatEntry from './ChatEntry';
 import PropTypes from 'prop-types';
 
-const ChatLog = ({ entries, likedCount, setLikedCount }) => {
+const ChatLog = ({ entries, adjustLikedCount }) => {
   const remote = entries[0].sender;
 
   const entriesElements = entries.map(entry => {
@@ -12,8 +12,7 @@ const ChatLog = ({ entries, likedCount, setLikedCount }) => {
       body={entry.body}
       timeStamp={entry.timeStamp}
       liked={entry.liked}
-      likedCount={likedCount}
-      setLikedCount={setLikedCount}
+      adjustLikedCount={adjustLikedCount}
       remote={remote}
     />;
   });
@@ -22,8 +21,7 @@ const ChatLog = ({ entries, likedCount, setLikedCount }) => {
 };
 
 ChatLog.PropTypes = {
-  likedCount: PropTypes.number,
-  setLikedCount: PropTypes.func,
+  adjustLikedCount: PropTypes.func,
   entries: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     sender: PropTypes.string,

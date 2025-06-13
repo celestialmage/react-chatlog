@@ -7,6 +7,10 @@ import { useState } from 'react';
 const App = () => {
   const [likedCount, setLikedCount] = useState(0);
 
+  const adjustLikedCount = liked => {
+    setLikedCount(count => count = (liked ? count - 1 : count + 1));
+  };
+
   return (
     <div id="App">
       <header>
@@ -16,7 +20,7 @@ const App = () => {
         {/* Wave 01: Render one ChatEntry component
         Wave 02: Render ChatLog component */}
         {/* <ChatEntry sender={entries[0].sender} body={entries[0].body} timeStamp={entries[0].timeStamp} /> */}
-        <ChatLog entries={entries} likedCount={likedCount} setLikedCount={setLikedCount}/>
+        <ChatLog entries={entries} adjustLikedCount={adjustLikedCount} setLikedCount={setLikedCount}/>
       </main>
     </div>
   );
