@@ -32,7 +32,7 @@ const App = () => {
     chatterNames = [...senders];
   };
 
-  const setTextColors = async (id, colorVal) => {
+  const setTextColors = (id, colorVal) => {
     const colors = ['white', 'red', 'orange', 'yellow', 'green', 'blue', 'purple', 'black'];
 
     if (id == 0) {
