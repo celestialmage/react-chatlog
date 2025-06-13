@@ -1,7 +1,6 @@
 import './App.css';
-// import ChatEntry from './components/ChatEntry';
 import ChatLog from './components/ChatLog';
-import ColorPicker from './components/ColorPicker';
+import Header from './components/Header';
 import entries from './data/messages.json';
 import { useState } from 'react';
 
@@ -42,32 +41,24 @@ const App = () => {
     }
   };
 
-  getSenders();
+  if (entries.length !== 0) {
+    getSenders();
+  }
 
   return (
     <div id="App">
-      <header>
-        <h1>Chat between {chatterNames[0]} and {chatterNames[1]}</h1>
-        <div className={'container'}>
-          <ColorPicker
-            id={0}
-            name={chatterNames[1]}
-            color={chatterOneColor}
-            setTextColors={setTextColors}
-          />
-          <h2 className="item">{likedCount} ❤️s</h2>
-          <ColorPicker
-            id={1}
-            name={chatterNames[0]}
-            color={chatterTwoColor}
-            setTextColors={setTextColors}
-          />
-        </div>
-      </header>
+      {entries.length !== 0 && (
+        <Header
+          chatterNames={chatterNames}
+          chatterOneColor={chatterOneColor}
+          chatterTwoColor={chatterTwoColor}
+          setTextColors={setTextColors}
+          likedCount={likedCount}
+        />
+      )}
       <main>
         {/* Wave 01: Render one ChatEntry component
         Wave 02: Render ChatLog component */}
-        {/* <ChatEntry sender={entries[0].sender} body={entries[0].body} timeStamp={entries[0].timeStamp} /> */}
         <ChatLog
           entries={entries}
           adjustLikedCount={adjustLikedCount}

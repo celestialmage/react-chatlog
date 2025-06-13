@@ -2,8 +2,6 @@ import ChatEntry from './ChatEntry';
 import PropTypes from 'prop-types';
 
 const ChatLog = ({ entries, adjustLikedCount, chatterOneColor, chatterTwoColor }) => {
-  const remote = entries[0].sender;
-
   const entriesElements = entries.map(entry => {
     return <ChatEntry
       key={entry.id}
@@ -13,7 +11,7 @@ const ChatLog = ({ entries, adjustLikedCount, chatterOneColor, chatterTwoColor }
       timeStamp={entry.timeStamp}
       liked={entry.liked}
       adjustLikedCount={adjustLikedCount}
-      remote={remote}
+      remote={entries[0].sender}
       chatterOneColor={chatterOneColor}
       chatterTwoColor={chatterTwoColor}
     />;
