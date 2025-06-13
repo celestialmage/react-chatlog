@@ -50,6 +50,7 @@
 }
 
 .container {
+  background-color: beige;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;

@@ -44,14 +44,11 @@ const App = () => {
 
   getSenders();
 
-  console.log(chatterNames);
-  console.log(chatterOneColor, chatterTwoColor);
-
   return (
     <div id="App">
       <header>
         <h1>Chat between {chatterNames[0]} and {chatterNames[1]}</h1>
-        <div className="container">
+        <div className={'container'}>
           <ColorPicker
             id={0}
             name={chatterNames[1]}

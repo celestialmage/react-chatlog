@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 
-const ColorPicker = ({ id, name, setTextColors }) => {
+const ColorPicker = ({ id, name, color, setTextColors }) => {
   return (
-    <div className="item">
+    <div className={'item ' + color}>
       <p>{name}'s color:</p>
       <button onClick={() => setTextColors(id, 0)}>⚪</button>
       <button onClick={() => setTextColors(id, 1)}>🔴</button>
@@ -19,6 +19,7 @@ const ColorPicker = ({ id, name, setTextColors }) => {
 ColorPicker.PropTypes = {
   id: PropTypes.number,
   name: PropTypes.string,
+  color: PropTypes.string,
   setTextColors: PropTypes.func,
 };
 
