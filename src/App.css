@@ -49,6 +49,18 @@
   display: inline-block
 }
 
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+.item {
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
 .red {
   color: #b22222
 }

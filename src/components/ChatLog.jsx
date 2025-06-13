@@ -1,7 +1,7 @@
 import ChatEntry from './ChatEntry';
 import PropTypes from 'prop-types';
 
-const ChatLog = ({ entries, adjustLikedCount }) => {
+const ChatLog = ({ entries, adjustLikedCount, chatterOneColor, chatterTwoColor }) => {
   const remote = entries[0].sender;
 
   const entriesElements = entries.map(entry => {
@@ -14,6 +14,8 @@ const ChatLog = ({ entries, adjustLikedCount }) => {
       liked={entry.liked}
       adjustLikedCount={adjustLikedCount}
       remote={remote}
+      chatterOneColor={chatterOneColor}
+      chatterTwoColor={chatterTwoColor}
     />;
   });
 
@@ -28,7 +30,9 @@ ChatLog.PropTypes = {
     body: PropTypes.string,
     timeStamp: PropTypes.string,
     liked: PropTypes.bool
-  }))
+  })),
+  chatterOneColor: PropTypes.string,
+  chatterTwoColor: PropTypes.string
 };
 
 export default ChatLog;

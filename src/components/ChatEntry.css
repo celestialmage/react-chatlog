@@ -98,3 +98,35 @@ button {
 .chat-entry.remote .entry-bubble:hover::before {
   background-color: #a9f6f6;
 }
+
+.white {
+  color: white;
+}
+
+.red {
+  color: red;
+}
+
+.orange {
+  color: orange;
+}
+
+.yellow {
+  color: yellow;
+}
+
+.green {
+  color: green;
+}
+
+.blue {
+  color: cyan;
+}
+
+.purple {
+  color: purple;
+}
+
+.black {
+  color: black;
+}

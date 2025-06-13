@@ -4,7 +4,7 @@ import TimeStamp from './TimeStamp';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
-const ChatEntry = ({ sender, body, timeStamp, liked, adjustLikedCount, remote }) => {
+const ChatEntry = ({ sender, body, timeStamp, liked, adjustLikedCount, remote, chatterOneColor, chatterTwoColor }) => {
   const [messageLiked, setMessageLiked] = useState(liked);
   const [likedHeart, setLikedHeart] = useState('🤍');
 
@@ -26,7 +26,7 @@ const ChatEntry = ({ sender, body, timeStamp, liked, adjustLikedCount, remote })
     <div className={classes}>
       <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
-        <p>{body}</p>
+        <p className={sender !== remote ? chatterOneColor : chatterTwoColor}>{body}</p>
         <p className="entry-time"><TimeStamp time={timeStamp} /></p>
         <button className="like" onClick={likeClicked}>{likedHeart}</button>
       </section>
@@ -34,7 +34,7 @@ const ChatEntry = ({ sender, body, timeStamp, liked, adjustLikedCount, remote })
   );
 };
 
-ChatEntry.propTypes = {
+ChatEntry.PropTypes = {
   // Fill with correct proptypes
   id: PropTypes.number,
   sender: PropTypes.string,
